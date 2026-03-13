@@ -132,6 +132,8 @@ The equivalence relation `∼` is chosen to preserve the structural features tha
 
 The choice of `∼` determines the resolution of identity. Homeomorphism preserves the broadest structural features. Diffeomorphism preserves finer geometry. Homotopy equivalence allows more deformation while still maintaining essential shape.
 
+**In applications, the equivalence relation `∼` is chosen according to the structural invariants relevant to the system domain.** There is no single canonical choice — the resolution of identity is domain-dependent, just as the choice of metric is domain-dependent in geometry. What is canonical is the form: identity is an equivalence class of reachable structure. The equivalence relation is the tuneable parameter.
+
 In all cases, the principle is the same: **identity is the invariant structure of the reachable future, not the current coordinate**.
 
 ### Geometric Identity Manifold
@@ -265,6 +267,41 @@ The interpretations hold exactly as originally stated. The correction is not to 
 ### The Deep Insight
 
 Intelligence is not about prediction or knowledge. It is about expanding the reachable future state space. A system that can reach more states tomorrow than it can today is intelligent. A system whose reachable set has frozen is not. The substrate does not matter. The measure does.
+
+### The Restructuring Clarification
+
+A natural objection: systems can be intelligent while *reducing* reachable volume. Optimisation narrows the state space. Constraint solving eliminates possibilities. A chess grandmaster’s reachable set of considered moves is smaller, not larger, than a beginner’s — yet the grandmaster is more intelligent.
+
+The resolution is precise. Intelligence is not merely expansion of volume. It is the **ability to restructure reachable geometry**. The topological invariant form captures this directly:
+
+```
+I(t) = d/dt 𝒯( Reach⁺(x₀, t) )
+```
+
+When `𝒯` is chosen as Betti numbers or homology rank, restructuring that preserves volume but changes topology still registers as `I(t) ≠ 0`. The system is not growing — it is reorganising. New loops form. Old barriers dissolve. The geometry of what is reachable changes even if the measure does not.
+
+```
+════════════════════════════════════════════════════════════════
+  EXPANSION vs RESTRUCTURING
+════════════════════════════════════════════════════════════════
+
+  Pure expansion        μ increases, 𝒯 may or may not change
+                         New volume. May be undirected.
+
+  Pure restructuring    μ stable or decreasing, 𝒯 changes
+                         Same or less volume. New structure.
+                         Optimisation. Compression. Mastery.
+
+  Creative intelligence μ increases AND 𝒯 changes
+                         New volume with new structure.
+                         Genuine novelty.
+
+  Stagnation            μ stable, 𝒯 stable
+                         I(t) = 0. Nothing moves.
+════════════════════════════════════════════════════════════════
+```
+
+The full statement of the Intelligence Invariant therefore encompasses both expansion and restructuring. A system that reorganises its reachable geometry — even while contracting in volume — is intelligent. A system whose geometry is frozen — regardless of volume — is not.
 
 Intelligence is the dynamics of the identity structure. Static identity is zero intelligence. Expanding identity is active intelligence. Contracting identity is decline.
 
@@ -481,7 +518,106 @@ The intuitions remain. The formal objects are now defensible.
 
 -----
 
-## 11. The Contribution
+-----
+
+## 12. The Safety Theorem
+
+The following is the first formal result derived from the canonical stack:
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   THEOREM (Safety Preservation)                                      ║
+║                                                                      ║
+║   Let X be a state space, Ω ⊂ X a forbidden region,                 ║
+║   S = X \ Ω the safe set, and F: X × U → X the transition           ║
+║   function.                                                          ║
+║                                                                      ║
+║   Define the safe action set:                                        ║
+║   A_safe(x) = { u ∈ U | F(x, u) ∈ S }                              ║
+║                                                                      ║
+║   If:                                                                ║
+║     (i)   x₀ ∈ S                                                    ║
+║     (ii)  at every step, u_t ∈ A_safe(x_t)                          ║
+║                                                                      ║
+║   Then:                                                              ║
+║     x_t ∈ S  for all  t ≥ 0                                         ║
+║                                                                      ║
+║   Proof:                                                             ║
+║   By induction. x₀ ∈ S by assumption.                               ║
+║   If x_t ∈ S and u_t ∈ A_safe(x_t), then by definition              ║
+║   F(x_t, u_t) ∈ S, so x_{t+1} ∈ S.                                 ║
+║   By induction, x_t ∈ S for all t ≥ 0.  ∎                          ║
+║                                                                      ║
+║   Consequence:                                                       ║
+║   S is forward invariant under A_safe.                               ║
+║   The safety invariant Reach⁺(x₀) ∩ Ω = ∅ holds                    ║
+║   for all trajectories generated under governed dynamics.            ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+This is a small theorem. It is also a complete one. It elevates the safety invariant from a stated condition to a **proven result**: if the action set is correctly constrained, safety is guaranteed for all time. The proof is by induction. The result is exact.
+
+-----
+
+## 13. Directions for Growth
+
+The canonical formalisation establishes the mathematical foundation. Three directions would strengthen it further.
+
+### Grounded Examples
+
+The framework is currently abstract. Concrete instantiations would demonstrate its applied power:
+
+|Example Domain              |State Space X         |Forbidden Region Ω                      |Identity ℐ                                 |
+|:--------------------------:|:--------------------:|:--------------------------------------:|:-----------------------------------------:|
+|Robot navigation            |Position × velocity   |Obstacle regions, collision states      |Equivalence class of navigable trajectories|
+|Reinforcement learning agent|Policy parameter space|Reward-hacking states, unsafe policies  |Topology of reachable policy manifold      |
+|Biological cell             |Gene expression space |Apoptotic / cancerous configurations    |Developmental attractor basin structure    |
+|AI alignment                |Behaviour state space |Deceptive, harmful, or misaligned states|Governed identity under perturbation       |
+
+Each instantiation maps directly onto the canonical stack. The system primitives (`X`, `U`, `F`) are domain-specific. The invariants (identity, safety, intelligence) are domain-independent.
+
+### Simulation
+
+A toy system demonstrating the full stack in action:
+
+```
+════════════════════════════════════════════════════════════════
+  TOY SYSTEM SPECIFICATION
+════════════════════════════════════════════════════════════════
+
+  State space:    X = ℝ²
+  Forbidden:      Ω = disk of radius r centred at origin
+  Initial state:  x₀ ∈ S = X \ Ω
+  Dynamics:       x_{t+1} = x_t + u_t,  |u_t| ≤ 1
+  Safe action:    A_safe(x) = { u : |x + u| > r }
+
+  Demonstrate:
+    1. Reach⁺(x₀) expanding over time
+    2. Ω remaining unreachable under A_safe
+    3. Forward invariance of S
+    4. I(t) = d/dt μ(Reach⁺) as measure of intelligence
+════════════════════════════════════════════════════════════════
+```
+
+This simulation would make the abstract stack visible and verifiable.
+
+### Further Theorems
+
+The Safety Preservation Theorem is the first result. Natural extensions include:
+
+|Theorem                  |Statement                                                                                     |
+|:-----------------------:|:--------------------------------------------------------------------------------------------:|
+|Identity Persistence     |If ∼ is preserved under A_safe, then ℐ(x₀) is invariant under governed dynamics               |
+|Intelligence Boundedness |If S is compact, then I(t) is bounded above by the geometry of S                              |
+|Irreversibility Criterion|If Λ × ΔG > T_critical, then no trajectory in A_safe returns to the original equivalence class|
+
+Each theorem connects directly to an existing Morrison Invariant. The canonical form makes them provable.
+
+-----
+
+## 14. The Contribution
 
 The strongest claim of the Morrison Framework™ is not a slogan. It is a formal commitment:
 
