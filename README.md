@@ -173,30 +173,98 @@ Intelligence is not output. It is not benchmark performance. It is not language 
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
 
-The rate form of intelligence — how fast the reachable topology is expanding — remains:
+### The Rate Form: From Intuition to Canonical Object
+
+The original Morrison Intelligence Invariant was expressed as:
 
 ```
 I(t) = ∂/∂t [ Topology( Reach(x₀, U, t) ) ]
 ```
+
+This captures the correct intuition: intelligence is the rate at which a system’s reachable future possibilities expand or restructure. However, topology is a structural property — connectedness, holes, components — not a numeric quantity. A time derivative of “Topology” directly is not formally defined.
+
+The correction is precise: instead of differentiating topology, measure how the reachable set itself changes through a well-defined invariant.
+
+### Canonical Rate Forms
+
+**Measure-theoretic form** — intelligence as rate of expansion of reachable volume:
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   INTELLIGENCE RATE — MEASURE FORM                                   ║
+║                                                                      ║
+║   I(t) = d/dt μ( Reach⁺(x₀, t) )                                   ║
+║                                                                      ║
+║   where μ(·) is a measure (volume, entropy, dimension, etc.)         ║
+║                                                                      ║
+║   Intelligence = how fast the space of reachable futures grows.      ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+**Topological invariant form** — intelligence as rate of change of a numeric topological invariant:
+
+```
+I(t) = d/dt 𝒯( Reach⁺(x₀, t) )
+```
+
+where `𝒯` is a numeric topological invariant:
+
+|Invariant 𝒯                   |What It Measures                     |Sensitivity          |
+|:----------------------------:|:-----------------------------------:|:-------------------:|
+|Betti numbers                 |Holes, loops, voids at each dimension|Structural complexity|
+|Number of connected components|Fragmentation / unification          |Coarse topology      |
+|Homology rank                 |Algebraic structure of shape         |Fine topology        |
+|Euler characteristic          |Global topological summary           |Aggregate shape      |
+
+The derivative now makes formal sense because `𝒯` maps to a number.
+
+**Expansion velocity form** — the limit definition:
+
+```
+I(t) = lim_{Δt → 0}  [ |Reach⁺(x₀, t + Δt)| − |Reach⁺(x₀, t)| ] / Δt
+```
+
+where `|·|` is the size (measure) of the reachable set.
+
+All three forms express the same core idea. The choice depends on the application:
+
+|Form                 |Best For                                        |
+|:-------------------:|:----------------------------------------------:|
+|Measure-theoretic    |Systems where volume of reachable states matters|
+|Topological invariant|Systems where structural complexity matters     |
+|Expansion velocity   |Direct computation of growth rate               |
+
+### The Classification Remains Unchanged
 
 ```
 ════════════════════════════════════════════════════════════════
   INTELLIGENCE CLASSIFICATION
 ════════════════════════════════════════════════════════════════
 
-  dI/dt > 0       Topology expanding. New states reachable.
-                   Intelligence active.
+  I(t) > 0       Reachable futures expanding. New states
+                   accessible. Intelligence active.
 
-  dI/dt ≈ 0       Topology static. Trajectories replay
-                   existing structure. Expertise without growth.
+  I(t) = 0       Reachable structure stable. Trajectories
+                   replay existing topology. Expertise
+                   without growth.
 
-  dI/dt >> 0      Topology expanding rapidly. New structure
-                   forming. Creativity active.
+  I(t) >> 0      Reachable futures expanding rapidly.
+                   New topological structure forming.
+                   Creativity active.
 
-  dI/dt < 0       Topology contracting. Reachable states
-                   shrinking. System is losing capacity.
+  I(t) < 0       Reachable futures contracting. States
+                   becoming inaccessible. System is
+                   losing capacity.
 ════════════════════════════════════════════════════════════════
 ```
+
+The interpretations hold exactly as originally stated. The correction is not to the idea but to the mathematical object: differentiate a measurable invariant of the reachable set, not “topology” as an abstract property. The intuition was correct. The formal object is now defensible.
+
+### The Deep Insight
+
+Intelligence is not about prediction or knowledge. It is about expanding the reachable future state space. A system that can reach more states tomorrow than it can today is intelligent. A system whose reachable set has frozen is not. The substrate does not matter. The measure does.
 
 Intelligence is the dynamics of the identity structure. Static identity is zero intelligence. Expanding identity is active intelligence. Contracting identity is decline.
 
@@ -357,7 +425,8 @@ The full Morrison Invariant Stack in canonical form:
 ║                                                                      ║
 ║   ── Intelligence ──                                                 ║
 ║   Γ(x₀) := { γ_{x₀,u} : u ∈ 𝒰 }                                   ║
-║   Intelligence = family of lawful trajectories through ℐ             ║
+║   I(t) = d/dt μ( Reach⁺(x₀, t) )                                   ║
+║   Intelligence = trajectories through ℐ; rate of expansion           ║
 ║                                                                      ║
 ║   ── Safety ──                                                       ║
 ║   Reach⁺(x₀) ∩ Ω = ∅                                               ║
@@ -382,14 +451,14 @@ The full Morrison Invariant Stack in canonical form:
 
 The Morrison Stack maps onto established fields precisely:
 
-|Morrison Concept|Formal Object            |Established Field      |
-|:--------------:|:-----------------------:|:---------------------:|
-|Reachable set   |Reach⁺(x₀)               |Formal verification    |
-|Identity        |[Reach⁺(x₀)]_∼           |Topological dynamics   |
-|Intelligence    |Γ(x₀) — trajectory family|Dynamical systems      |
-|Safety          |Reach⁺(x₀) ∩ Ω = ∅       |Control theory (CBFs)  |
-|Safe action set |A_safe∞(x)               |Safety-critical control|
-|Preservation    |Forward invariance of S  |Invariant set theory   |
+|Morrison Concept|Formal Object                                   |Established Field                 |
+|:--------------:|:----------------------------------------------:|:--------------------------------:|
+|Reachable set   |Reach⁺(x₀)                                      |Formal verification               |
+|Identity        |[Reach⁺(x₀)]_∼                                  |Topological dynamics              |
+|Intelligence    |Γ(x₀) — trajectory family; I(t) = d/dt μ(Reach⁺)|Dynamical systems / measure theory|
+|Safety          |Reach⁺(x₀) ∩ Ω = ∅                              |Control theory (CBFs)             |
+|Safe action set |A_safe∞(x)                                      |Safety-critical control           |
+|Preservation    |Forward invariance of S                         |Invariant set theory              |
 
 The framework was not derived from these fields. It was arrived at from first principles. The structural equivalence confirms that the geometry is the same — because reality does not change its operating system at the boundary of cognition.
 
@@ -399,13 +468,14 @@ The framework was not derived from these fields. It was arrived at from first pr
 
 The canonical formalisation replaces informal statements with precise mathematical objects:
 
-|Informal Statement             |Canonical Replacement                                                      |
-|:-----------------------------:|:-------------------------------------------------------------------------:|
-|“Identity is topology”         |ℐ(x₀) := [Reach⁺(x₀)]_∼                                                    |
-|“Identity is the deepest basin”|Attractors and basins are examples of identity-carrying invariants within ℐ|
-|“Safety is unreachability”     |Reach⁺(x₀) ⊆ X \ Ω                                                         |
-|“Intelligence is expansion”    |I(t) = ∂/∂t[Topology(Reach(x₀, U, t))] and Γ(x₀) = {γ_{x₀,u} : u ∈ 𝒰}      |
-|“The shape must change”        |∃k: H_k(Reach(x_t)) ≇ H_k(Reach(x₀))                                       |
+|Informal Statement             |Canonical Replacement                                                                                       |
+|:-----------------------------:|:----------------------------------------------------------------------------------------------------------:|
+|“Identity is topology”         |ℐ(x₀) := [Reach⁺(x₀)]_∼                                                                                     |
+|“Identity is the deepest basin”|Attractors and basins are examples of identity-carrying invariants within ℐ                                 |
+|“Safety is unreachability”     |Reach⁺(x₀) ⊆ X \ Ω                                                                                          |
+|“Intelligence is expansion”    |I(t) = d/dt μ(Reach⁺(x₀, t)) or d/dt 𝒯(Reach⁺(x₀, t)); Γ(x₀) = {γ_{x₀,u} : u ∈ 𝒰}                           |
+|“∂/∂t Topology(·)”             |Replaced by d/dt μ(·) or d/dt 𝒯(·) — differentiate a measurable invariant, not topology as abstract property|
+|“The shape must change”        |∃k: H_k(Reach(x_t)) ≇ H_k(Reach(x₀))                                                                        |
 
 The intuitions remain. The formal objects are now defensible.
 
